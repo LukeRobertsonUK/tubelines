@@ -45,7 +45,7 @@ end
 
 condition4 = true
 while condition4
-  puts "\nPlease choose a station to exit the train from: #{(trains[off_line]).join(", ")}"
+  puts "\nPlease choose a station from which to exit the train: #{(trains[off_line]).join(", ")}"
   response = gets.chomp.downcase
   if trains[off_line].include?(response)
     off_station = response
@@ -55,16 +55,21 @@ while condition4
   end
 end
 
+if on_station == off_station
+ puts "You don't need to catch the train.... you are already at your destination!"
+else
+
 #journey to union
-to_union = (trains[on_line].index(on_station)) - (trains[on_line].index("union"))
-if to_union < 0
-  to_union *= -1
-end
+  to_union = (trains[on_line].index(on_station)) - (trains[on_line].index("union"))
+  if to_union < 0
+    to_union *= -1
+  end
 
 #journey from union
-from_union = trains[off_line].index(off_station) - trains[off_line].index("union")
-if from_union < 0
-  from_union *= -1
-end
+  from_union = trains[off_line].index(off_station) - trains[off_line].index("union")
+  if from_union < 0
+    from_union *= -1
+  end
 
-puts "\nYour journey is #{to_union + from_union} stops!"
+  puts "\nYour journey is #{to_union + from_union} stops!"
+end
