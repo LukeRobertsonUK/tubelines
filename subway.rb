@@ -25,7 +25,7 @@ end
 
 puts "JOURNEY STOP CALCULATOR"
 puts "\nWhich train-line would you like to join?"
-line_join(on_line)
+line_choice(on_line)
 
 
 
