@@ -50,14 +50,11 @@ off_station = station_choice(off_line)
 if on_station == off_station
  puts "You don't need to catch the train.... you are already at your destination!"
 else
-
-#journey to union
   to_union = (trains[on_line].index(on_station)) - (trains[on_line].index("union"))
   if to_union < 0
     to_union *= -1
   end
 
-#journey from union
   from_union = trains[off_line].index(off_station) - trains[off_line].index("union")
   if from_union < 0
     from_union *= -1
