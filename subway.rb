@@ -15,7 +15,6 @@ while condition1
     condition1 = false
   else
     puts "I don't understand... please type your response exactly as shown."
-    puts
   end
 end
 
@@ -28,7 +27,6 @@ while condition2
     condition2 = false
   else
     puts "I don't understand... please type your response exactly as shown."
-    puts
   end
 end
 
@@ -42,7 +40,6 @@ while condition3
     condition3 = false
   else
     puts "I don't understand... please type your response exactly as shown."
-    puts
   end
 end
 
@@ -55,7 +52,6 @@ while condition4
     condition4 = false
   else
     puts "I don't understand... please type your response exactly as shown."
-    puts
   end
 end
 
