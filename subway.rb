@@ -19,12 +19,12 @@ def line_choice(lines)
   response
 end
 
-def station_choice(lines, station)
+def station_choice(lines, chosen_line)
 condition = true
   while condition
-    puts "\nPlease choose a station: #{(lines[station]).join(", ")}"
+    puts "\nPlease choose a station: #{(lines[chosen_line]).join(", ")}"
     response = gets.chomp.downcase
-    if lines[station].include?(response)
+    if lines[chosen_line].include?(response)
       on_station =  response
       condition = false
     else
