@@ -6,7 +6,7 @@ trains[:s] = ["ap", "union", "23rd-s", "28th-s", "33rd-s", "gc"]
 
 on_line = nil
 
-def line_join(line)
+def line_choice(line)
   while condition
     puts "\nWhich train-line would you like to join?"
     puts "Your options are: L, N, S(ix):"
