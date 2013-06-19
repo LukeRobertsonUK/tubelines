@@ -24,6 +24,7 @@ end
 def station_choice(x)
 condition = true
   while condition
+    puts "\nPlease choose a station: #{(trains[x]).join(", ")}"
     response = gets.chomp.downcase
     if trains[x].include?(response)
       on_station =  response
@@ -39,13 +40,11 @@ puts "JOURNEY STOP CALCULATOR"
 puts "\nWhich train-line would you like to join?"
 on_line = line_choice
 
-puts "\nPlease choose a station from which to board the train: #{(trains[on_line]).join(", ")}"
 on_station = station_choice(on_line)
 
 puts "\nWhich train-line would you like to exit?"
 off_line = line_choice
 
-puts "\nPlease choose a station from which to exit the train: #{(trains[off_line]).join(", ")}"
 off_station = station_choice(off_line)
 
 if on_station == off_station
