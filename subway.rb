@@ -1,83 +1,52 @@
 puts `clear`
-trains = {}
-trains[:l] = ["8th-l", "6th-l", "union", "3rd-l", "1st-l"]
-trains[:n] = ["8th-n", "union", "23rd-n", "28th-n", "34th-n", "ts"]
-trains[:s] = ["ap", "union", "23rd-s", "28th-s", "33rd-s", "gc"]
+def trains
+  {
+    :l => ["8th-l", "6th-l", "union", "3rd-l", "1st-l"],
+    :n => ["8th-n", "union", "23rd-n", "28th-n", "34th-n", "ts"],
+    :s => ["ap", "union", "23rd-s", "28th-s", "33rd-s", "gc"],
+  }
+end
 
-on_line = nil
-
-def line_choice(line)
+def line_choice
+  condition = true
   while condition
-    puts "\nWhich train-line would you like to join?"
     puts "Your options are: L, N, S(ix):"
     response = gets.chomp.downcase.to_sym
     if trains.keys.include?(response)
-      line = response
+          condition = false
+        else
+      puts "I don't understand... please type your response exactly as shown."
+    end
+  end
+  response
+end
+
+def station_choice(x)
+condition = true
+  while condition
+    response = gets.chomp.downcase
+    if trains[x].include?(response)
+      on_station =  response
       condition = false
     else
       puts "I don't understand... please type your response exactly as shown."
     end
   end
+  response
 end
-
-
-
 
 puts "JOURNEY STOP CALCULATOR"
 puts "\nWhich train-line would you like to join?"
-line_choice(on_line)
+on_line = line_choice
 
+puts "\nPlease choose a station from which to board the train: #{(trains[on_line]).join(", ")}"
+on_station = station_choice(on_line)
 
+puts "\nWhich train-line would you like to exit?"
+off_line = line_choice
 
-# condition1 = true
-# while condition1
-#   puts "\nWhich train-line would you like to join?"
-#   puts "Your options are: L, N, S(ix):"
-#   response = gets.chomp.downcase.to_sym
-#   if trains.keys.include?(response)
-#     on_line = response
-#     condition1 = false
-#   else
-#     puts "I don't understand... please type your response exactly as shown."
-#   end
-# end
-
-condition2 = true
-while condition2
-  puts "\nPlease choose a station from which to board the train: #{(trains[on_line]).join(", ")}"
-  response = gets.chomp.downcase
-  if trains[on_line].include?(response)
-    on_station =  response
-    condition2 = false
-  else
-    puts "I don't understand... please type your response exactly as shown."
-  end
-end
-
-condition3 = true
-while condition3
-  puts "\nWhich train-line would you like to exit?"
-  puts "Your options are: L, N, S(ix):"
-  response = gets.chomp.downcase.to_sym
-  if trains.keys.include?(response)
-    off_line = response
-    condition3 = false
-  else
-    puts "I don't understand... please type your response exactly as shown."
-  end
-end
-
-condition4 = true
-while condition4
-  puts "\nPlease choose a station from which to exit the train: #{(trains[off_line]).join(", ")}"
-  response = gets.chomp.downcase
-  if trains[off_line].include?(response)
-    off_station = response
-    condition4 = false
-  else
-    puts "I don't understand... please type your response exactly as shown."
-  end
-end
+puts "\nPlease choose a station from which to exit the train: #{(trains[off_line]).join(", ")}"
+off_station = station_choice(off_line)
 
 if on_station == off_station
  puts "You don't need to catch the train.... you are already at your destination!"
