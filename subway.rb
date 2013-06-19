@@ -4,19 +4,43 @@ trains[:l] = ["8th-l", "6th-l", "union", "3rd-l", "1st-l"]
 trains[:n] = ["8th-n", "union", "23rd-n", "28th-n", "34th-n", "ts"]
 trains[:s] = ["ap", "union", "23rd-s", "28th-s", "33rd-s", "gc"]
 
-puts "JOURNEY STOP CALCULATOR"
-condition1 = true
-while condition1
-  puts "\nWhich train-line would you like to join?"
-  puts "Your options are: L, N, S(ix):"
-  response = gets.chomp.downcase.to_sym
-  if trains.keys.include?(response)
-    on_line = response
-    condition1 = false
-  else
-    puts "I don't understand... please type your response exactly as shown."
+on_line = nil
+
+def line_join(line)
+  while condition
+    puts "\nWhich train-line would you like to join?"
+    puts "Your options are: L, N, S(ix):"
+    response = gets.chomp.downcase.to_sym
+    if trains.keys.include?(response)
+      line = response
+      condition = false
+    else
+      puts "I don't understand... please type your response exactly as shown."
+    end
   end
 end
+
+
+
+
+puts "JOURNEY STOP CALCULATOR"
+puts "\nWhich train-line would you like to join?"
+line_join(on_line)
+
+
+
+# condition1 = true
+# while condition1
+#   puts "\nWhich train-line would you like to join?"
+#   puts "Your options are: L, N, S(ix):"
+#   response = gets.chomp.downcase.to_sym
+#   if trains.keys.include?(response)
+#     on_line = response
+#     condition1 = false
+#   else
+#     puts "I don't understand... please type your response exactly as shown."
+#   end
+# end
 
 condition2 = true
 while condition2
