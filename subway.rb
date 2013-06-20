@@ -1,8 +1,8 @@
 puts `clear`
 trains = {
-    :l => ["8th", "6th", "union", "3rd", "1st"],
-    :n => ["8th", "union", "23rd", "28th", "34th", "ts"],
-    :s => ["ap", "union", "23rd", "28th", "33rd", "gc"],
+    :l => ["8th-l", "6th-l", "union", "3rd-l", "1st-l"],
+    :n => ["8th-n", "union", "23rd-n", "28th-n", "34th-n", "ts"],
+    :s => ["ap", "union", "23rd-s", "28th-s", "33rd-s", "gc"],
   }
 
 def line_choice(lines)
