@@ -45,18 +45,17 @@ off_line = line_choice(trains)
 
 off_station = station_choice(trains, off_line)
 
-
-
 if on_station == off_station
    puts "You don't need to catch the train.... you are already at your destination!"
 elsif on_line == off_line
   stops = trains[on_line].index(on_station) - trains[on_line].index(off_station)
   if stops < 0
     stops *= -1
-  puts "\nYour journey is #{stops} stops!"
+    puts "\nYour journey is #{stops} stops!"
   end
 else
   intersection = (trains[on_line] & trains[off_line]).first.to_s
+
   to_interesection = (trains[on_line].index(on_station)) - (trains[on_line].index(intersection))
     if to_interesection< 0
       to_interesection *= -1
